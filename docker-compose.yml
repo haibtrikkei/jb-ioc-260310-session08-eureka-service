@@ -1,0 +1,14 @@
+
+services:
+  eureka-service:
+    image: ghcr.io/haibtrikkei/session08-eureka-service:${IMAGE_TAG:-latest}
+    container_name: eureka-service
+    restart: unless-stopped
+    ports:
+      - "8761:8761"
+    networks:
+      - session08-network
+
+networks:
+  session08-network:
+    driver: bridge
